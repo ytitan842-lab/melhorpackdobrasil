@@ -87,6 +87,14 @@
   .bar{height:6px;background:#241f3d;border-radius:99px;margin-top:8px;overflow:hidden}
   .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--neon2))}
   .tt{color:var(--mut);font-size:13px;font-weight:700;min-width:34px;text-align:right}
+  .tracks{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;margin-bottom:8px;-webkit-overflow-scrolling:touch}
+  .tracks::-webkit-scrollbar{height:4px}.tracks::-webkit-scrollbar-thumb{background:var(--neon);border-radius:9px}
+  .tracks .track{flex:0 0 118px;flex-direction:column;text-align:center;gap:8px;margin:0;padding:14px 10px;scroll-snap-align:start}
+  .tracks .tinfo{width:100%}
+  .tracks .tinfo b{font-size:13px;line-height:1.2;display:block;min-height:32px}
+  .tracks .tt{text-align:center;min-width:0}
+  .tracks .play{width:54px;height:54px;font-size:22px}
+  .swipe{color:var(--mut);font-size:12px;text-align:center;margin:-2px 0 14px}
   /* Popup oferta */
   .ov{position:fixed;inset:0;background:rgba(5,4,12,.85);display:none;align-items:center;justify-content:center;z-index:99;padding:18px}
   .ov.show{display:flex}
@@ -109,7 +117,6 @@
 <section class="hero">
   <div class="wrap">
     <h1>O <span class="glow">MELHOR PACK</span> DO BRASIL<br>com <span class="glow2">+5.000 MÚSICAS</span></h1>
-    <p class="sub">Organizadas por estilo, atualizadas todo mês e prontas pra baixar no celular ou no computador.</p>
     <!-- VÍDEO DO TOPO: gravação de tela mostrando todas as pastas e arquivos (video-arquivos.mp4). Enquanto não tiver o vídeo, aparece a foto hero.jpg -->
     <video class="img" src="video-arquivos.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
     <a class="btn" href="#planos">QUERO MEU PACK AGORA</a>
@@ -152,12 +159,23 @@
   <div class="wrap">
     <h2>Sinta a <span class="glow">qualidade do som</span></h2>
     <p class="sub" style="margin:-10px 0 18px">Toque no 🔊 e escute um trecho de cada estilo do pack.</p>
+    <div class="tracks">
     <div class="track" data-src="amostra1.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Country Beat / Agro Bass</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
     <div class="track" data-src="amostra2.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Funk</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
     <div class="track" data-src="amostra3.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Piseiro</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
     <div class="track" data-src="amostra4.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Som Automotivo</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
     <div class="track" data-src="amostra5.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Sertanejo Raiz</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    </div>
+    <p class="swipe">← arraste pro lado para ver todos os estilos →</p>
     <a class="btn" href="#planos">QUERO TODAS AS MÚSICAS</a>
+  </div>
+</section>
+
+<!-- 6. DEPOIMENTOS (só prints reais) -->
+<section>
+  <div class="wrap">
+    <h2>Quem já tem, <span class="glow">aprovou</span></h2>
+    <div class="proof">Coloque aqui prints reais de clientes (WhatsApp ou comentários) assim que chegarem as primeiras vendas.</div>
   </div>
 </section>
 
@@ -198,6 +216,10 @@
         <li>✅ Acesso imediato e vitalício</li>
         <li>✅ Download direto, sem propaganda</li>
         <li>✅ Suporte VIP no WhatsApp</li>
+        <li>✅ Áudio em alta qualidade (MP3 320 kbps)</li>
+        <li>✅ Funciona no carro, pen drive, caixa JBL e celular</li>
+        <li>✅ Playlists prontas: festa, academia, churrasco e carro</li>
+        <li>🎁 <b>Bônus:</b> passo a passo pra passar as músicas pro pen drive</li>
       </ul>
       <p class="old">De R$ 74,90</p>
       <p class="price"><small>por</small> R$ 29,90</p>
@@ -205,25 +227,6 @@
       <a class="btn" href="LINK_CHECKOUT_PREMIUM">QUERO O PREMIUM</a>
     </div>
     <div class="badges"><span>🔒 Compra segura</span><span>⚡ Acesso na hora</span><span>🛡️ 7 dias de garantia</span></div>
-  </div>
-</section>
-
-<!-- 5. TUDO PENSADO PRA VOCÊ -->
-<section>
-  <div class="wrap">
-    <h2>Tudo pensado <span class="glow2">pra você</span></h2>
-    <div class="feat"><div class="ic">📂</div><div><b>Organização por pastas</b><span>Cada estilo na sua pasta, em ordem alfabética.</span></div></div>
-    <div class="feat"><div class="ic">⬇️</div><div><b>Download direto</b><span>Sem propaganda, sem encurtador, sem enrolação.</span></div></div>
-    <div class="feat"><div class="ic">📲</div><div><b>Funciona no celular</b><span>Baixe no Android, iPhone, tablet ou computador.</span></div></div>
-    <div class="feat"><div class="ic">♾️</div><div><b>Acesso vitalício</b><span>Pagou uma vez, é seu pra sempre.</span></div></div>
-  </div>
-</section>
-
-<!-- 6. DEPOIMENTOS (só prints reais) -->
-<section>
-  <div class="wrap">
-    <h2>Quem já tem, <span class="glow">aprovou</span></h2>
-    <div class="proof">Coloque aqui prints reais de clientes (WhatsApp ou comentários) assim que chegarem as primeiras vendas.</div>
   </div>
 </section>
 
