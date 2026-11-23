@@ -357,7 +357,15 @@
     function fechar(){ pop.classList.remove('show'); }
     // Botão voltar do celular/navegador
     try{ history.pushState({fica:1},'',location.href); }catch(e){}
+    // Links internos (#planos, #amostras): rola a página sem mexer no histórico, assim o botão não abre o pop-up de saída
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var alvo=document.querySelector(a.getAttribute('href'));
+        if(alvo){ e.preventDefault(); alvo.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
     window.addEventListener('popstate',function(){
+      if(location.hash) return;
       if(!mostrar()){ history.back(); }
     });
     // PC: mouse saindo pelo topo da página
