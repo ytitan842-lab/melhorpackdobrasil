@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Melhor Pack do Brasil · +5.000 Músicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07060d; --card:#12101f; --line:#2a2545;
+    --neon:#ff2bd6; --neon2:#22e4ff; --lime:#b6ff3b;
+    --txt:#f4f2ff; --mut:#a9a3c7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:Montserrat,Arial,sans-serif;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:520px;margin:0 auto;padding:0 18px}
+  section{padding:42px 0}
+  h1,h2{font-weight:900;line-height:1.15;text-align:center}
+  h1{font-size:30px}
+  h2{font-size:24px;margin-bottom:22px}
+  .glow{color:var(--neon);text-shadow:0 0 18px rgba(255,43,214,.6)}
+  .glow2{color:var(--neon2);text-shadow:0 0 18px rgba(34,228,255,.6)}
+  .sub{color:var(--mut);text-align:center;margin-top:12px;font-weight:500}
+  /* Barra topo */
+  .topbar{background:linear-gradient(90deg,var(--neon),var(--neon2));color:#07060d;text-align:center;font-weight:800;font-size:13px;padding:9px 10px}
+  /* Imagem placeholder (troque pelas imagens geradas no Flow) */
+  .img{width:100%;border-radius:18px;display:block;object-fit:cover;background:
+    radial-gradient(circle at 30% 30%,rgba(255,43,214,.45),transparent 55%),
+    radial-gradient(circle at 70% 70%,rgba(34,228,255,.45),transparent 55%),#141127;
+    border:1px solid var(--line)}
+  .hero .img{aspect-ratio:auto;margin:22px 0}
+  .btn{display:block;text-align:center;font-weight:900;font-size:17px;letter-spacing:.3px;
+    padding:18px 16px;border-radius:14px;color:#07060d;
+    background:linear-gradient(90deg,var(--lime),#7dff6a);
+    box-shadow:0 0 24px rgba(182,255,59,.45);margin-top:18px;transition:transform .15s}
+  .btn:hover{transform:scale(1.02)}
+  .badges{display:flex;justify-content:center;gap:14px;margin-top:14px;color:var(--mut);font-size:13px;font-weight:700;flex-wrap:wrap}
+  /* Grid do que recebe */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+  .item .ic{font-size:28px}
+  .item b{display:block;margin-top:6px;font-size:14px}
+  .item span{display:block;color:var(--mut);font-size:12px;margin-top:4px}
+  /* Estilos */
+  .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .tag{border:1px solid var(--neon2);color:var(--neon2);border-radius:999px;padding:7px 14px;font-weight:700;font-size:13px}
+  /* Planos */
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 20px;margin-bottom:18px;position:relative}
+  .plan.best{border:2px solid var(--neon);box-shadow:0 0 30px rgba(255,43,214,.35)}
+  .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--neon);color:#07060d;font-weight:900;font-size:12px;padding:5px 14px;border-radius:999px;white-space:nowrap}
+  .plan h3{text-align:center;font-size:20px;font-weight:900}
+  .plan .img{aspect-ratio:1/1;margin:16px 0}
+  .plan ul{list-style:none;margin:10px 0}
+  .plan li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px;font-weight:600}
+  .plan li.off{color:#5d5878;text-decoration:line-through}
+  .old{text-align:center;color:var(--mut);text-decoration:line-through;margin-top:14px;font-weight:700}
+  .price{text-align:center;font-size:44px;font-weight:900;color:var(--lime);text-shadow:0 0 20px rgba(182,255,59,.4)}
+  .price small{font-size:16px;color:var(--mut);font-weight:700}
+  .once{text-align:center;color:var(--mut);font-size:13px}
+  .btn.ghost{background:transparent;color:var(--txt);border:2px solid var(--neon2);box-shadow:0 0 18px rgba(34,228,255,.3)}
+  /* Recursos */
+  .feat{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+  .feat .ic{font-size:26px}
+  .feat b{display:block}
+  .feat span{color:var(--mut);font-size:14px}
+  /* Depoimentos */
+  .proof{border:2px dashed var(--line);border-radius:16px;padding:22px;text-align:center;color:var(--mut);font-size:14px}
+  /* Garantia */
+  .guar{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 20px}
+  .guar .seal{font-size:54px}
+  .guar p{color:var(--mut);margin-top:8px}
+  /* FAQ */
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}
+  summary{font-weight:800;cursor:pointer}
+  details p{color:var(--mut);margin-top:10px;font-size:14px}
+  /* Suporte e rodapé */
+  .support{text-align:center}
+  .wa{display:inline-block;margin-top:14px;background:#25d366;color:#07060d;font-weight:900;padding:14px 22px;border-radius:12px}
+  /* Amostras */
+  .track{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+  .track.on{border-color:var(--neon);box-shadow:0 0 18px rgba(255,43,214,.3)}
+  .play{flex:none;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;font-size:18px;font-weight:900;color:#07060d;background:linear-gradient(135deg,var(--neon),var(--neon2))}
+  .tinfo{flex:1}
+  .tinfo b{font-size:15px}
+  .bar{height:6px;background:#241f3d;border-radius:99px;margin-top:8px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--neon2))}
+  .tt{color:var(--mut);font-size:13px;font-weight:700;min-width:34px;text-align:right}
+  /* Popup oferta */
+  .ov{position:fixed;inset:0;background:rgba(5,4,12,.85);display:none;align-items:center;justify-content:center;z-index:99;padding:18px}
+  .ov.show{display:flex}
+  .pop{background:var(--card);border:2px solid var(--neon);box-shadow:0 0 40px rgba(255,43,214,.45);border-radius:22px;max-width:420px;width:100%;padding:26px 22px;text-align:center;position:relative;animation:pop .25s ease}
+  @keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop .x{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--mut);font-size:22px;cursor:pointer}
+  .pop .tit{font-size:24px;font-weight:900;line-height:1.2}
+  .pop .ptxt{color:var(--mut);margin:10px 0 4px;font-weight:600}
+  .pop .pimg{width:62%;border-radius:14px;margin:12px auto 4px;display:block}
+  .pop .old{margin-top:6px}
+  .pop .no{display:block;margin-top:14px;color:var(--mut);font-size:13px;text-decoration:underline;cursor:pointer}
+  footer{text-align:center;color:#5d5878;font-size:12px;padding:30px 18px 50px}
+</style>
+</head>
+<body>
+
+<div class="topbar">🔥 OFERTA ESPECIAL · ACESSO IMEDIATO NO CELULAR 🔥</div>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>O <span class="glow">MELHOR PACK</span> DO BRASIL<br>com <span class="glow2">+5.000 MÚSICAS</span></h1>
+    <p class="sub">Organizadas por estilo, atualizadas todo mês e prontas pra baixar no celular ou no computador.</p>
+    <!-- VÍDEO DO TOPO: gravação de tela mostrando todas as pastas e arquivos (video-arquivos.mp4). Enquanto não tiver o vídeo, aparece a foto hero.jpg -->
+    <video class="img" src="video-arquivos.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <a class="btn" href="#planos">QUERO MEU PACK AGORA</a>
+    <div class="badges"><span>🔒 Pagamento seguro</span><span>⚡ Acesso imediato</span><span>♾️ Vitalício</span></div>
+  </div>
+</section>
+
+<!-- 2. O QUE VOCÊ VAI RECEBER -->
+<section>
+  <div class="wrap">
+    <h2>O que você vai <span class="glow">receber</span></h2>
+    <div class="grid">
+      <div class="item"><div class="ic">🎧</div><b>+5.000 músicas</b><span>No plano Premium</span></div>
+      <div class="item"><div class="ic">📂</div><b>Pastas por estilo</b><span>Ache tudo em segundos</span></div>
+      <div class="item"><div class="ic">🔄</div><b>Atualização mensal</b><span>Músicas novas todo mês</span></div>
+      <div class="item"><div class="ic">📲</div><b>Baixa no celular</b><span>Android, iPhone e PC</span></div>
+      <div class="item"><div class="ic">⬇️</div><b>Download direto</b><span>Sem propaganda nem encurtador</span></div>
+      <div class="item"><div class="ic">💬</div><b>Suporte VIP</b><span>Atendimento no WhatsApp</span></div>
+    </div>
+    <a class="btn" href="#planos">VER OS PLANOS</a>
+  </div>
+</section>
+
+<!-- 3. ESTILOS -->
+<section>
+  <div class="wrap">
+    <h2>Todos os <span class="glow2">estilos</span> num lugar só</h2>
+    <div class="tags">
+      <span class="tag">Sertanejo</span><span class="tag">Funk</span><span class="tag">Piseiro</span>
+      <span class="tag">Pagode</span><span class="tag">Forró</span><span class="tag">Trap</span>
+      <span class="tag">Eletrônica</span><span class="tag">Gospel</span><span class="tag">Lo-fi</span>
+      <span class="tag">Arrocha</span><span class="tag">Reggaeton</span><span class="tag">E muito mais</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3.5 AMOSTRAS (troque os arquivos amostra1.mp3 ... amostra5.mp3 por trechos do seu pack) -->
+<section>
+  <div class="wrap">
+    <h2>Ouça uma <span class="glow">amostra</span></h2>
+    <p class="sub" style="margin:-10px 0 18px">Toque no play e escute um trecho de cada estilo.</p>
+    <div class="track" data-src="amostra1.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Sertanejo</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra2.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Funk</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra3.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Piseiro</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra4.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Pagode</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra5.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Trap</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <a class="btn" href="#planos">QUERO TODAS AS MÚSICAS</a>
+  </div>
+</section>
+
+<!-- 4. PLANOS -->
+<section id="planos">
+  <div class="wrap">
+    <h2>Escolha seu <span class="glow">pack</span></h2>
+
+    <div class="plan">
+      <h3>PACK BÁSICO</h3>
+      <!-- IMAGEM 3: mockup do pack básico (prompt 2) -->
+      <img class="img" src="pack-basico.jpg" alt="Pack Básico">
+      <ul>
+        <li>✅ +1.000 músicas</li>
+        <li>✅ Pastas organizadas por estilo</li>
+        <li>✅ Acesso imediato e vitalício</li>
+        <li>✅ Download direto</li>
+        <li class="off">❌ +5.000 músicas</li>
+        <li class="off">❌ Atualização mensal</li>
+        <li class="off">❌ Suporte VIP</li>
+      </ul>
+      <p class="old">De R$ 47,60</p>
+      <p class="price"><small>por</small> R$ 9,90</p>
+      <p class="once">Pagamento único</p>
+      <a class="btn ghost" href="LINK_CHECKOUT_BASICO" id="btnBasico">QUERO O BÁSICO</a>
+    </div>
+
+    <div class="plan best">
+      <span class="ribbon">⭐ MAIS VENDIDO</span>
+      <h3>PACK PREMIUM</h3>
+      <!-- IMAGEM 4: mockup do pack premium (prompt 3) -->
+      <img class="img" src="pack-premium.jpg" alt="Pack Premium">
+      <ul>
+        <li>✅ <b>+5.000 músicas</b></li>
+        <li>✅ Todos os estilos</li>
+        <li>✅ Atualização mensal com músicas novas</li>
+        <li>✅ Pastas organizadas por estilo</li>
+        <li>✅ Acesso imediato e vitalício</li>
+        <li>✅ Download direto, sem propaganda</li>
+        <li>✅ Suporte VIP no WhatsApp</li>
+      </ul>
+      <p class="old">De R$ 74,90</p>
+      <p class="price"><small>por</small> R$ 29,90</p>
+      <p class="once">Pagamento único</p>
+      <a class="btn" href="LINK_CHECKOUT_PREMIUM">QUERO O PREMIUM</a>
+    </div>
+    <div class="badges"><span>🔒 Compra segura</span><span>⚡ Acesso na hora</span><span>🛡️ 7 dias de garantia</span></div>
+  </div>
+</section>
+
+<!-- 5. TUDO PENSADO PRA VOCÊ -->
+<section>
+  <div class="wrap">
+    <h2>Tudo pensado <span class="glow2">pra você</span></h2>
+    <div class="feat"><div class="ic">📂</div><div><b>Organização por pastas</b><span>Cada estilo na sua pasta, em ordem alfabética.</span></div></div>
+    <div class="feat"><div class="ic">⬇️</div><div><b>Download direto</b><span>Sem propaganda, sem encurtador, sem enrolação.</span></div></div>
+    <div class="feat"><div class="ic">📲</div><div><b>Funciona no celular</b><span>Baixe no Android, iPhone, tablet ou computador.</span></div></div>
+    <div class="feat"><div class="ic">♾️</div><div><b>Acesso vitalício</b><span>Pagou uma vez, é seu pra sempre.</span></div></div>
+  </div>
+</section>
+
+<!-- 6. DEPOIMENTOS (só prints reais) -->
+<section>
+  <div class="wrap">
+    <h2>Quem já tem, <span class="glow">aprovou</span></h2>
+    <div class="proof">Coloque aqui prints reais de clientes (WhatsApp ou comentários) assim que chegarem as primeiras vendas.</div>
+  </div>
+</section>
+
+<!-- 7. GARANTIA -->
+<section>
+  <div class="wrap">
+    <div class="guar">
+      <div class="seal">🛡️</div>
+      <h2 style="margin:6px 0 0">Risco zero: 7 dias de garantia</h2>
+      <p>Baixe, ouça e teste. Se não gostar, devolvemos 100% do seu dinheiro, sem perguntas.</p>
+      <a class="btn" href="#planos">GARANTIR MEU PACK</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section>
+  <div class="wrap">
+    <h2>Perguntas <span class="glow2">frequentes</span></h2>
+    <details><summary>Como recebo o pack?</summary><p>Logo após a confirmação do pagamento você recebe o link de acesso no e-mail. É só abrir e baixar.</p></details>
+    <details><summary>Em que formato vêm as músicas?</summary><p>Em MP3, organizadas em pastas por estilo, prontas pra tocar em qualquer aparelho.</p></details>
+    <details><summary>As músicas têm direitos autorais?</summary><p>Não. Todas as músicas do pack são livres de direitos autorais, então você pode usar sem medo.</p></details>
+    <details><summary>O acesso expira?</summary><p>Não. O acesso é vitalício e, no Premium, entram músicas novas todo mês.</p></details>
+    <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Peça o reembolso e devolvemos 100% do valor.</p></details>
+  </div>
+</section>
+
+<!-- 9. SUPORTE -->
+<section class="support">
+  <div class="wrap">
+    <h2>Estamos <span class="glow">com você</span></h2>
+    <p class="sub">Ficou com alguma dúvida? Chama no WhatsApp.</p>
+    <a class="wa" href="https://wa.me/5568992253629?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Melhor%20Pack%20do%20Brasil">💬 Falar no WhatsApp</a>
+    <p class="sub" style="margin-top:10px">(68) 99225-3629</p>
+  </div>
+</section>
+
+<footer>© 2026 O Melhor Pack do Brasil · Todos os direitos reservados</footer>
+<script>
+  // Toca um trecho por vez; para sozinho depois de 30 segundos
+  (function(){
+    var LIMITE = 30, audio = new Audio(), atual = null;
+    function fmt(s){s=Math.max(0,Math.ceil(s));return '0:'+(s<10?'0':'')+s;}
+    function parar(){
+      if(!atual) return;
+      audio.pause();
+      atual.classList.remove('on');
+      atual.querySelector('.play').textContent='▶';
+      atual.querySelector('.bar i').style.width='0';
+      atual.querySelector('.tt').textContent=fmt(LIMITE);
+      atual=null;
+    }
+    document.querySelectorAll('.track').forEach(function(t){
+      t.querySelector('.play').addEventListener('click',function(){
+        if(atual===t){parar();return;}
+        parar();
+        atual=t;
+        audio.src=t.dataset.src;
+        audio.currentTime=0;
+        audio.play().catch(function(){parar();});
+        t.classList.add('on');
+        t.querySelector('.play').textContent='❚❚';
+      });
+    });
+    audio.addEventListener('timeupdate',function(){
+      if(!atual) return;
+      var tot=Math.min(LIMITE,audio.duration||LIMITE);
+      atual.querySelector('.bar i').style.width=Math.min(100,audio.currentTime/tot*100)+'%';
+      atual.querySelector('.tt').textContent=fmt(tot-audio.currentTime);
+      if(audio.currentTime>=tot) parar();
+    });
+    audio.addEventListener('ended',parar);
+  })();
+</script>
+<!-- POPUP: aparece quando clicam no Básico -->
+<div class="ov" id="ofertaPop">
+  <div class="pop">
+    <button class="x" id="popFechar" aria-label="Fechar">✕</button>
+    <div class="tit">ESPERA! 🎁<br><span class="glow">Oferta só pra você</span></div>
+    <p class="ptxt">Em vez de levar só 1.000 músicas, leve o <b>Pack Premium</b> completo com +5.000 músicas, atualização mensal e suporte VIP.</p>
+    <img class="pimg" src="pack-premium.jpg" alt="Pack Premium">
+    <p class="old">De R$ 29,90</p>
+    <p class="price"><small>por</small> R$ 17,90</p>
+    <p class="once">Só R$ 8,00 a mais que o Básico · Pagamento único</p>
+    <a class="btn" href="LINK_CHECKOUT_PREMIUM_1790">SIM, QUERO O PREMIUM POR R$ 17,90</a>
+    <a class="no" href="LINK_CHECKOUT_BASICO">Não, quero só o Básico por R$ 9,90</a>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var pop=document.getElementById('ofertaPop');
+    document.getElementById('btnBasico').addEventListener('click',function(e){e.preventDefault();pop.classList.add('show');});
+    document.getElementById('popFechar').addEventListener('click',function(){pop.classList.remove('show');});
+    pop.addEventListener('click',function(e){if(e.target===pop)pop.classList.remove('show');});
+  })();
+</script>
+<!-- POPUP DE SAÍDA: aparece uma vez quando a pessoa aperta voltar (ou tira o mouse da página no PC) -->
+<div class="ov" id="saidaPop">
+  <div class="pop">
+    <button class="x" id="saidaFechar" aria-label="Fechar">✕</button>
+    <div class="tit">JÁ VAI? 😢<br><span class="glow2">Espera um segundo!</span></div>
+    <p class="ptxt">Liberamos uma condição especial que <b>só aparece agora</b>: o Pack Premium com +5.000 músicas, atualização mensal e suporte VIP.</p>
+    <img class="pimg" src="pack-premium.jpg" alt="Pack Premium">
+    <p class="old">De R$ 29,90</p>
+    <p class="price"><small>por</small> R$ 17,90</p>
+    <p class="once">Pagamento único · Acesso imediato · 7 dias de garantia</p>
+    <a class="btn" href="LINK_CHECKOUT_PREMIUM_1790">QUERO APROVEITAR AGORA</a>
+    <a class="no" id="saidaSair">Não, prefiro sair sem as músicas</a>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var pop=document.getElementById('saidaPop'), jaMostrou=false;
+    function mostrar(){ if(jaMostrou) return false; jaMostrou=true; pop.classList.add('show'); return true; }
+    function fechar(){ pop.classList.remove('show'); }
+    // Botão voltar do celular/navegador
+    try{ history.pushState({fica:1},'',location.href); }catch(e){}
+    window.addEventListener('popstate',function(){
+      if(!mostrar()){ history.back(); }
+    });
+    // PC: mouse saindo pelo topo da página
+    document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<=0) mostrar(); });
+    document.getElementById('saidaFechar').addEventListener('click',fechar);
+    pop.addEventListener('click',function(e){ if(e.target===pop) fechar(); });
+    document.getElementById('saidaSair').addEventListener('click',function(){ fechar(); history.back(); });
+  })();
+</script>
+</body>
+</html>
