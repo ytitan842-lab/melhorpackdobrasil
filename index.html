@@ -117,8 +117,19 @@
 <section class="hero">
   <div class="wrap">
     <h1>O <span class="glow">MELHOR PACK</span> DO BRASIL<br>com <span class="glow2">+5.000 MÚSICAS</span></h1>
-    <!-- VÍDEO DO TOPO: gravação de tela mostrando todas as pastas e arquivos (video-arquivos.mp4). Enquanto não tiver o vídeo, aparece a foto hero.jpg -->
-    <video class="img" src="video-arquivos.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <!-- ========= VÍDEO DO TOPO =========
+         Cole o link do YouTube entre as aspas abaixo (ex.: https://youtu.be/AbC123xyz).
+         O vídeo precisa estar como "Não listado" ou "Público". Enquanto estiver vazio, aparece a foto hero.jpg -->
+    <script>var VIDEO_TOPO = "";</script>
+    <div id="videoTopo"><img class="img" src="hero.jpg" alt="O Melhor Pack do Brasil"></div>
+    <script>
+      (function(){
+        var m=(VIDEO_TOPO||'').match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+        if(!m) return;
+        var id=m[1];
+        document.getElementById('videoTopo').innerHTML='<div style="position:relative;aspect-ratio:9/16;max-width:360px;margin:22px auto;border-radius:18px;overflow:hidden;border:1px solid var(--line)"><iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&playsinline=1&rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+      })();
+    </script>
     <a class="btn" href="#planos">QUERO MEU PACK AGORA</a>
     <a class="btn ghost" href="#amostras" style="margin-top:12px">🔊 OUVIR AMOSTRAS</a>
     <div class="badges"><span>🔒 Pagamento seguro</span><span>⚡ Acesso imediato</span><span>♾️ Vitalício</span></div>
