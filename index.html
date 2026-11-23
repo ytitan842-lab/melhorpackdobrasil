@@ -127,7 +127,12 @@
         var m=(VIDEO_TOPO||'').match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
         if(!m) return;
         var id=m[1];
-        document.getElementById('videoTopo').innerHTML='<div style="position:relative;aspect-ratio:9/16;max-width:360px;margin:22px auto;border-radius:18px;overflow:hidden;border:1px solid var(--line)"><iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&playsinline=1&rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+        var box=document.getElementById('videoTopo');
+        // Capa com botão de play: o vídeo só carrega (com som) quando a pessoa aperta
+        box.innerHTML='<div id="capaVideo" style="position:relative;margin:22px 0;cursor:pointer"><img class="img" src="hero.jpg" alt="Veja o que vem dentro" style="margin:0"><div style="position:absolute;inset:0;border-radius:18px;background:rgba(7,6,13,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><div style="width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,#ff2bd6,#22e4ff);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(255,43,214,.7);animation:pulsar 1.2s infinite"><span style="font-size:38px;color:#07060d;margin-left:6px">&#9654;</span></div><div style="background:#07060d;border:2px solid #ff2bd6;border-radius:12px;padding:10px 16px;font-weight:900;font-size:16px;text-align:center">APERTE AQUI PRA VER<br>O QUE VEM DENTRO</div></div></div><style>@keyframes pulsar{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}</style>';
+        document.getElementById('capaVideo').addEventListener('click',function(){
+          box.innerHTML='<div style="position:relative;aspect-ratio:9/16;max-width:360px;margin:22px auto;border-radius:18px;overflow:hidden;border:1px solid var(--line)"><iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+        });
       })();
     </script>
     <a class="btn" href="#planos">QUERO MEU PACK AGORA</a>
