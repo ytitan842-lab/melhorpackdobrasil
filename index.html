@@ -187,12 +187,32 @@
   </div>
 </section>
 
-<!-- 6. DEPOIMENTOS (só prints reais) -->
-<section>
+<!-- 6. DEPOIMENTOS (só prints reais)
+     Pra adicionar: suba os prints no GitHub (ex.: depo1.jpg, depo2.jpg...) com número e foto cobertos
+     e coloque os nomes dos arquivos na lista DEPOIMENTOS abaixo. Com a lista vazia, a seção fica escondida. -->
+<section id="depoimentos" style="display:none">
   <div class="wrap">
     <h2>Quem já tem, <span class="glow">aprovou</span></h2>
-    <div class="proof">Coloque aqui prints reais de clientes (WhatsApp ou comentários) assim que chegarem as primeiras vendas.</div>
   </div>
+  <div class="marquee"><div class="trilho" id="trilhoDepo"></div></div>
+  <style>
+    .marquee{overflow:hidden;width:100%;padding:6px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    .trilho{display:flex;gap:14px;width:max-content;animation:rolar 40s linear infinite}
+    .trilho img{height:340px;width:auto;border-radius:16px;border:1px solid var(--line);pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none}
+    @keyframes rolar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  </style>
+  <script>
+    var DEPOIMENTOS = [];
+    (function(){
+      if(!DEPOIMENTOS.length) return;
+      var t=document.getElementById('trilhoDepo');
+      var html=DEPOIMENTOS.map(function(f){return '<img src="'+f+'" alt="Depoimento de cliente" draggable="false">';}).join('');
+      t.innerHTML=html+html; // duplica pra rolar sem emenda
+      t.style.animationDuration=(DEPOIMENTOS.length*8)+'s';
+      t.addEventListener('contextmenu',function(e){e.preventDefault();});
+      document.getElementById('depoimentos').style.display='';
+    })();
+  </script>
 </section>
 
 <!-- 4. PLANOS -->
