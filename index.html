@@ -377,6 +377,10 @@
 
 <script>
   (function(){
+    // Sempre abrir no topo da página (sem pular pro preço)
+    try{ history.scrollRestoration='manual'; }catch(e){}
+    if(location.hash){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
+    window.scrollTo(0,0); window.addEventListener('load',function(){ setTimeout(function(){ window.scrollTo(0,0); },0); });
     var pop=document.getElementById('saidaPop'), jaMostrou=false, armado=false;
     // Só arma o pop-up depois de 4 segundos na página (evita abrir na entrada)
     setTimeout(function(){ armado=true; },4000);
