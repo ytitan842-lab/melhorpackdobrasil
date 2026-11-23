@@ -377,27 +377,31 @@
 
 <script>
   (function(){
-    var pop=document.getElementById('saidaPop'), jaMostrou=false;
-    function mostrar(){ if(jaMostrou) return false; jaMostrou=true; pop.classList.add('show'); return true; }
+    var pop=document.getElementById('saidaPop'), jaMostrou=false, armado=false;
+    // Só arma o pop-up depois de 4 segundos na página (evita abrir na entrada)
+    setTimeout(function(){ armado=true; },4000);
+    function mostrar(){ if(jaMostrou||!armado) return false; jaMostrou=true; pop.classList.add('show'); return true; }
     function fechar(){ pop.classList.remove('show'); }
-    // Botão voltar do celular/navegador
-    try{ history.pushState({fica:1},'',location.href); }catch(e){}
-    // Links internos (#planos, #amostras): rola a página sem mexer no histórico, assim o botão não abre o pop-up de saída
+    // Links internos (#planos, #amostras): rolam sem mexer no histórico
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
       a.addEventListener('click',function(e){
         var alvo=document.querySelector(a.getAttribute('href'));
         if(alvo){ e.preventDefault(); alvo.scrollIntoView({behavior:'smooth',block:'start'}); }
       });
     });
-    window.addEventListener('popstate',function(){
+    // Botão voltar: cria uma "parada" no histórico e só reage quando a pessoa realmente volta dela
+    try{ history.pushState({fica:1},'',location.href); }catch(e){}
+    window.addEventListener('popstate',function(e){
+      if(e.state && e.state.fica) return;      // evento falso que alguns celulares disparam ao abrir
       if(location.hash) return;
-      if(!mostrar()){ history.back(); }
+      if(mostrar()){ try{ history.pushState({fica:1},'',location.href); }catch(err){} }
+      else { history.back(); }
     });
-    // PC: mouse saindo pelo topo da página
+    // PC: mouse saindo pelo topo da janela
     document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<=0) mostrar(); });
     document.getElementById('saidaFechar').addEventListener('click',fechar);
     pop.addEventListener('click',function(e){ if(e.target===pop) fechar(); });
-    document.getElementById('saidaSair').addEventListener('click',function(){ fechar(); history.back(); });
+    document.getElementById('saidaSair').addEventListener('click',function(){ fechar(); history.go(-2); });
   })();
 </script>
 </body>
