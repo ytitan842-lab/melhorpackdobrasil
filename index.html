@@ -6,6 +6,7 @@
 <title>O Melhor Pack do Brasil · +5.000 Músicas</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
+  html{scroll-behavior:smooth}
   :root{
     --bg:#07060d; --card:#12101f; --line:#2a2545;
     --neon:#ff2bd6; --neon2:#22e4ff; --lime:#b6ff3b;
@@ -112,6 +113,7 @@
     <!-- VÍDEO DO TOPO: gravação de tela mostrando todas as pastas e arquivos (video-arquivos.mp4). Enquanto não tiver o vídeo, aparece a foto hero.jpg -->
     <video class="img" src="video-arquivos.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
     <a class="btn" href="#planos">QUERO MEU PACK AGORA</a>
+    <a class="btn ghost" href="#amostras" style="margin-top:12px">🔊 OUVIR AMOSTRAS</a>
     <div class="badges"><span>🔒 Pagamento seguro</span><span>⚡ Acesso imediato</span><span>♾️ Vitalício</span></div>
   </div>
 </section>
@@ -146,15 +148,15 @@
 </section>
 
 <!-- 3.5 AMOSTRAS (troque os arquivos amostra1.mp3 ... amostra5.mp3 por trechos do seu pack) -->
-<section>
+<section id="amostras">
   <div class="wrap">
-    <h2>Ouça uma <span class="glow">amostra</span></h2>
-    <p class="sub" style="margin:-10px 0 18px">Toque no play e escute um trecho de cada estilo.</p>
-    <div class="track" data-src="amostra1.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Sertanejo</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
-    <div class="track" data-src="amostra2.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Funk</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
-    <div class="track" data-src="amostra3.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Piseiro</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
-    <div class="track" data-src="amostra4.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Pagode</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
-    <div class="track" data-src="amostra5.mp3"><button class="play" aria-label="Tocar">▶</button><div class="tinfo"><b>Trap</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <h2>Sinta a <span class="glow">qualidade do som</span></h2>
+    <p class="sub" style="margin:-10px 0 18px">Toque no 🔊 e escute um trecho de cada estilo do pack.</p>
+    <div class="track" data-src="amostra1.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Country Beat / Agro Bass</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra2.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Funk</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra3.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Piseiro</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra4.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Som Automotivo</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
+    <div class="track" data-src="amostra5.mp3"><button class="play" aria-label="Tocar">🔊</button><div class="tinfo"><b>Sertanejo Raiz</b><div class="bar"><i></i></div></div><span class="tt">0:30</span></div>
     <a class="btn" href="#planos">QUERO TODAS AS MÚSICAS</a>
   </div>
 </section>
@@ -269,7 +271,7 @@
       if(!atual) return;
       audio.pause();
       atual.classList.remove('on');
-      atual.querySelector('.play').textContent='▶';
+      atual.querySelector('.play').textContent='🔊';
       atual.querySelector('.bar i').style.width='0';
       atual.querySelector('.tt').textContent=fmt(LIMITE);
       atual=null;
