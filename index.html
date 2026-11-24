@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O Melhor Pack do Brasil · +5.000 Músicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="hero.webp">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
   html{scroll-behavior:smooth}
@@ -119,9 +122,9 @@
     <h1>O <span class="glow">MELHOR PACK</span> DO BRASIL<br>com <span class="glow2">+5.000 MÚSICAS</span></h1>
     <!-- ========= VÍDEO DO TOPO =========
          Cole o link do YouTube entre as aspas abaixo (ex.: https://youtu.be/AbC123xyz).
-         O vídeo precisa estar como "Não listado" ou "Público". Enquanto estiver vazio, aparece a foto hero.jpg -->
+         O vídeo precisa estar como "Não listado" ou "Público". Enquanto estiver vazio, aparece a foto hero.webp -->
     <script>var VIDEO_TOPO = "https://youtu.be/n8H8ZQkkilw";</script>
-    <div id="videoTopo"><img class="img" src="hero.jpg" alt="O Melhor Pack do Brasil"></div>
+    <div id="videoTopo"><img class="img" src="hero.webp" alt="O Melhor Pack do Brasil"></div>
     <script>
       (function(){
         var m=(VIDEO_TOPO||'').match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
@@ -129,7 +132,7 @@
         var id=m[1];
         var box=document.getElementById('videoTopo');
         // Capa com botão de play: o vídeo só carrega (com som) quando a pessoa aperta
-        box.innerHTML='<div id="capaVideo" style="position:relative;margin:22px 0;cursor:pointer"><img class="img" src="hero.jpg" alt="Veja o que vem dentro" style="margin:0"><div style="position:absolute;inset:0;border-radius:18px;background:rgba(7,6,13,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><div style="width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,#ff2bd6,#22e4ff);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(255,43,214,.7);animation:pulsar 1.2s infinite"><span style="font-size:38px;color:#07060d;margin-left:6px">&#9654;</span></div><div style="background:#07060d;border:2px solid #ff2bd6;border-radius:12px;padding:10px 16px;font-weight:900;font-size:16px;text-align:center">APERTE AQUI PRA VER<br>O QUE VEM DENTRO</div></div></div><style>@keyframes pulsar{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}</style>';
+        box.innerHTML='<div id="capaVideo" style="position:relative;margin:22px 0;cursor:pointer"><img class="img" src="hero.webp" alt="Veja o que vem dentro" style="margin:0"><div style="position:absolute;inset:0;border-radius:18px;background:rgba(7,6,13,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><div style="width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,#ff2bd6,#22e4ff);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(255,43,214,.7);animation:pulsar 1.2s infinite"><span style="font-size:38px;color:#07060d;margin-left:6px">&#9654;</span></div><div style="background:#07060d;border:2px solid #ff2bd6;border-radius:12px;padding:10px 16px;font-weight:900;font-size:16px;text-align:center">APERTE AQUI PRA VER<br>O QUE VEM DENTRO</div></div></div><style>@keyframes pulsar{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}</style>';
         document.getElementById('capaVideo').addEventListener('click',function(){
           box.innerHTML='<div style="position:relative;aspect-ratio:9/16;max-width:360px;margin:22px auto;border-radius:18px;overflow:hidden;border:1px solid var(--line)"><iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
         });
@@ -206,7 +209,7 @@
     (function(){
       if(!DEPOIMENTOS.length) return;
       var t=document.getElementById('trilhoDepo');
-      var html=DEPOIMENTOS.map(function(f){return '<img src="'+f+'" alt="Depoimento de cliente" draggable="false">';}).join('');
+      var html=DEPOIMENTOS.map(function(f){return '<img src="'+f+'" alt="Depoimento de cliente" draggable="false" loading="lazy" decoding="async">';}).join('');
       t.innerHTML=html+html; // duplica pra rolar sem emenda
       t.style.animationDuration=(DEPOIMENTOS.length*8)+'s';
       t.addEventListener('contextmenu',function(e){e.preventDefault();});
@@ -223,7 +226,7 @@
     <div class="plan">
       <h3>PACK BÁSICO</h3>
       <!-- IMAGEM 3: mockup do pack básico (prompt 2) -->
-      <img class="img" src="pack-basico.jpg" alt="Pack Básico">
+      <img class="img" loading="lazy" decoding="async" width="700" height="700" src="pack-basico.webp" alt="Pack Básico">
       <ul>
         <li>✅ +1.000 músicas</li>
         <li>✅ Pastas organizadas por estilo</li>
@@ -243,7 +246,7 @@
       <span class="ribbon">⭐ MAIS VENDIDO</span>
       <h3>PACK PREMIUM</h3>
       <!-- IMAGEM 4: mockup do pack premium (prompt 3) -->
-      <img class="img" src="pack-premium.jpg" alt="Pack Premium">
+      <img class="img" loading="lazy" decoding="async" width="700" height="700" src="pack-premium.webp" alt="Pack Premium">
       <ul>
         <li>✅ <b>+5.000 músicas</b></li>
         <li>✅ Todos os estilos</li>
@@ -343,7 +346,7 @@
     <button class="x" id="popFechar" aria-label="Fechar">✕</button>
     <div class="tit">ESPERA! 🎁<br><span class="glow">Oferta só pra você</span></div>
     <p class="ptxt">Em vez de levar só 1.000 músicas, leve o <b>Pack Premium</b> completo com +5.000 músicas, atualização mensal e suporte VIP.</p>
-    <img class="pimg" src="pack-premium.jpg" alt="Pack Premium">
+    <img class="pimg" loading="lazy" decoding="async" src="pack-premium.webp" alt="Pack Premium">
     <p class="old">De R$ 29,90</p>
     <p class="price"><small>por</small> R$ 17,90</p>
     <p class="once">Só R$ 8,00 a mais que o Básico · Pagamento único</p>
@@ -366,7 +369,7 @@
     <button class="x" id="saidaFechar" aria-label="Fechar">✕</button>
     <div class="tit">JÁ VAI? 😢<br><span class="glow2">Espera um segundo!</span></div>
     <p class="ptxt">Liberamos uma condição especial que <b>só aparece agora</b>: o Pack Premium com +5.000 músicas, atualização mensal e suporte VIP.</p>
-    <img class="pimg" src="pack-premium.jpg" alt="Pack Premium">
+    <img class="pimg" loading="lazy" decoding="async" src="pack-premium.webp" alt="Pack Premium">
     <p class="old">De R$ 29,90</p>
     <p class="price"><small>por</small> R$ 17,90</p>
     <p class="once">Pagamento único · Acesso imediato · 7 dias de garantia</p>
