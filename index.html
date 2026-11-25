@@ -111,6 +111,26 @@
   .pop .no{display:block;margin-top:14px;color:var(--mut);font-size:13px;text-decoration:underline;cursor:pointer}
   footer{text-align:center;color:#5d5878;font-size:12px;padding:30px 18px 50px}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2880889532296657');
+fbq('track', 'PageView');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="zuptos"]');if(a&&window.fbq){fbq('track','InitiateCheckout');}},true);
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2880889532296657&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- UTMify UTMs -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 </head>
 <body>
 
